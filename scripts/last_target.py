@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 .. module:: Last_Target
    :platform: Unix
@@ -14,7 +15,7 @@ Provides Service:
     * /Last_Target
 """
 
-#!/usr/bin/env python
+
 
 import rospy
 from assignment_2_2023.msg import PlanningActionGoal

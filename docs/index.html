@@ -147,6 +147,87 @@ This node implements a controller for the Buggy</p>
 </dd></dl>
 
 </section>
+<section id="module-scripts.spd_server">
+<span id="display-speed-module"></span><h1>Display_speed Module<a class="headerlink" href="#module-scripts.spd_server" title="Permalink to this heading">¶</a></h1>
+<span class="target" id="module-Display_speed"></span><p><em>Module author: Aimen.B <a class="reference external" href="mailto:s5922996&#37;&#52;&#48;studenti&#46;unige&#46;it">s5922996<span>&#64;</span>studenti<span>&#46;</span>unige<span>&#46;</span>it</a>
+This node implements a controller for the Buggy.</em></p>
+<dl class="simple">
+<dt>This node subscribes to the following topics:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>/odom (nav_msgs/Odometry)</dt><dd><p>Receives the robot’s instantaneous position and velocity.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>/reaching_goal/goal (assignment_2_2023/PlanningActionGoal)</dt><dd><p>Receives the last goal target chosen by the user.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt>And provides the following service:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>/speed_distance (assignment_2_2023/Avrg)</dt><dd><p>Provides the average speed and distance of the robot from the goal.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.spd_server.goal_callback">
+<span class="sig-prename descclassname"><span class="pre">scripts.spd_server.</span></span><span class="sig-name descname"><span class="pre">goal_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/spd_server.html#goal_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.spd_server.goal_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Callback function to get the last goal target chosen by the user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>msg</strong> (<em>assignment_2_2023.msg.PlanningActionGoal</em>) – Goal message containing the last goal target.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.spd_server.main">
+<span class="sig-prename descclassname"><span class="pre">scripts.spd_server.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/spd_server.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.spd_server.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main function to initialize the ROS node, subscribers, and service server.
+The main function performs the following steps:</p>
+<ul class="simple">
+<li><p>Initializes the ROS node.</p></li>
+<li><p>Subscribes to the /odom topic to receive the robot’s position and velocity.</p></li>
+<li><p>Subscribes to the /reaching_goal/goal topic to receive the target goal position.</p></li>
+<li><p>Creates a service server for the /speed_distance service to provide the distance from the target and the average speed.</p></li>
+<li><p>Enters the main loop, where it accumulates the robot’s speed over 50 iterations, calculates the average speed, and calculates the distance from the target.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.spd_server.odom_callback">
+<span class="sig-prename descclassname"><span class="pre">scripts.spd_server.</span></span><span class="sig-name descname"><span class="pre">odom_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/spd_server.html#odom_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.spd_server.odom_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Callback function to get the instantaneous position coordinates and velocity from the odom topic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>msg</strong> (<em>nav_msgs.msg.Odometry</em>) – Odometry message containing robot’s instantaneous position and velocity.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.spd_server.speed_distance_callback">
+<span class="sig-prename descclassname"><span class="pre">scripts.spd_server.</span></span><span class="sig-name descname"><span class="pre">speed_distance_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">req</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/spd_server.html#speed_distance_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.spd_server.speed_distance_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Service callback function to provide the average speed and distance from the target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>req</strong> (<em>assignment_2_2023.srv.AvrgRequest</em>) – Service request.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Service response containing distance and average speed.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>assignment_2_2023.srv.AvrgResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 
 
           </div>

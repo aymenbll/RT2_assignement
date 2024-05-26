@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 .. module:: Buggy_move
    :platform: Unix
@@ -14,7 +15,7 @@ Publiches to:
 */custom_pos_vel*
 """ 
 
-#!/usr/bin/env python
+
 
 import rospy
 import actionlib

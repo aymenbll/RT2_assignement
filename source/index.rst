@@ -33,4 +33,9 @@ Last_Target Module
 .. automodule:: scripts.last_target
    :members:
    
+Display_speed Module
+====================
+.. automodule:: scripts.spd_server
+   :members:
+   
 
